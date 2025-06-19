@@ -31,7 +31,7 @@ const PendingResult = () => {
     if (!user && !pageloading) {
       router.push("/login");
     }
-  }, [user, pageloading]);
+  }, [user, pageloading, router]);
 
   if (pageloading || !user)
     return (
@@ -413,8 +413,8 @@ const PendingResult = () => {
                           <th>Total Score</th>
                           <th>Grade</th>
                           <th>Status</th>
-                          <th>Teacher's Comment</th>
-                          <th>Teacher's Name</th>
+                          <th>Teacher&apos;s Comment</th>
+                          <th>Teacher&apos;s Name</th>
                           <th>Actions</th>
                         </tr>
                       </thead>

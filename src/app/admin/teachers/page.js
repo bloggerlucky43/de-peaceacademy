@@ -25,7 +25,7 @@ const TeacherManage = () => {
     if (!user && !pageloading) {
       router.push("/login");
     }
-  }, [user, pageloading]);
+  }, [user, pageloading, router]);
 
   const handleSideBar = (e) => {
     e.preventDefault();

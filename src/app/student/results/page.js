@@ -29,7 +29,7 @@ export default function Results() {
     if (!user && !pageloading) {
       router.push("/login");
     }
-  }, [user, pageloading]);
+  }, [user, pageloading, router]);
 
   if (pageloading || !user)
     return (
@@ -308,7 +308,9 @@ export default function Results() {
                             <th className="text-wrap">Class</th>
                             <th>Term</th>
                             <th>Grade</th>
-                            <th className="text-wrap">Teacher's Comment</th>
+                            <th className="text-wrap">
+                              Teacher&apos;s Comment
+                            </th>
                           </tr>
                         </thead>
                         <tbody>
@@ -343,8 +345,9 @@ export default function Results() {
                         <strong>Class Position:</strong> 3rd
                       </p>
                       <p>
-                        <strong>Teacher's General Remark:</strong> {user.name}{" "}
-                        has shown remarkable improvement this term. Keep it up!
+                        <strong>Teacher&apos;s General Remark:</strong>{" "}
+                        {user.name} has shown remarkable improvement this term.
+                        Keep it up!
                       </p>
                       <button
                         onClick={handleDownloadPDF}

@@ -30,24 +30,14 @@ const AdminDashboard = () => {
     if (!user && !pageloading) {
       router.push("/login");
     }
-  }, [user, pageloading]);
-
-  if (pageloading || !user)
-    return (
-      <div
-        className="d-flex justify-content-center align-items-center"
-        style={{ height: "100vh" }}>
-        <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    );
+  }, [user, pageloading, router]);
 
   const adminId = user.id;
   const term = user.term;
   const session = user.session;
   const userName = user.name;
   useEffect(() => {
+    if (!user) return;
     const fetchData = async () => {
       try {
         const response = await fetch(
@@ -70,8 +60,18 @@ const AdminDashboard = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [user?.session, user?.term]);
 
+  if (pageloading || !user)
+    return (
+      <div
+        className="d-flex justify-content-center align-items-center"
+        style={{ height: "100vh" }}>
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
   const handleLogout = async (e) => {
     e.preventDefault();
 

@@ -28,7 +28,7 @@ export default function EditResult() {
     if (!user && !pageloading) {
       router.push("/login");
     }
-  }, [user, pageloading]);
+  }, [user, pageloading, router]);
 
   if (pageloading || !user)
     return (
@@ -329,7 +329,7 @@ export default function EditResult() {
                           <th>Exam Score</th>
                           <th>Total Score</th>
                           <th>Grade</th>
-                          <th>Teacher's Comment</th>
+                          <th>Teacher&apos;s Comment</th>
                           <th>Status</th>
                           <th>Save</th>
                         </tr>

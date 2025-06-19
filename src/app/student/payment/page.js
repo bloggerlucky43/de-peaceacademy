@@ -27,7 +27,7 @@ export default function PayFee() {
     if (!user && !pageloading) {
       router.push("/login");
     }
-  }, [user, pageloading]);
+  }, [user, pageloading, router]);
 
   useEffect(() => {
     if (!user?.id) return;

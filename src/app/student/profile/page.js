@@ -20,7 +20,7 @@ export default function Profile() {
     if (!user && !pageloading) {
       router.push("/login");
     }
-  }, [user, pageloading]);
+  }, [user, pageloading, router]);
 
   if (pageloading || !user)
     return (
