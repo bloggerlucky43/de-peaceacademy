@@ -32,16 +32,12 @@ const AdminDashboard = () => {
     }
   }, [user, pageloading, router]);
 
-  const adminId = user.id;
-  const term = user.term;
-  const session = user.session;
-  const userName = user.name;
   useEffect(() => {
     if (!user) return;
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${bApp}/api/get-dashboard?session=${session}&term=${term}`,
+          `${bApp}/api/get-dashboard?session=${user?.session}&term=${user?.term}`,
           {
             method: "GET",
             credentials: "include",
@@ -60,9 +56,9 @@ const AdminDashboard = () => {
       }
     };
     fetchData();
-  }, [session, term, user]);
+  }, [user]);
 
-  if (pageloading || !user)
+  if (pageloading || !user) {
     return (
       <div
         className="d-flex justify-content-center align-items-center"
@@ -72,6 +68,10 @@ const AdminDashboard = () => {
         </div>
       </div>
     );
+  }
+
+  const userName = user?.name;
+
   const handleLogout = async (e) => {
     e.preventDefault();
 
