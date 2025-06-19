@@ -1,11 +1,11 @@
 "use client";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 
 const bApp = process.env.NEXT_PUBLIC_API_URL;
 
-export default function ResetPassword() {
+function ResetPasswordForm() {
   const [loading, setLoading] = useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -119,5 +119,13 @@ export default function ResetPassword() {
         </form>
       </div>
     </div>
+  );
+}
+
+export default function ResetPassword() {
+  return (
+    <Suspense fallback={<p className="text-center mt-5">Loading form...</p>}>
+      <ResetPasswordForm />
+    </Suspense>
   );
 }
