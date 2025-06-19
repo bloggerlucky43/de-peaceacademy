@@ -60,7 +60,7 @@ const AdminDashboard = () => {
       }
     };
     fetchData();
-  }, [user?.session, user?.term]);
+  }, [session, term]);
 
   if (pageloading || !user)
     return (

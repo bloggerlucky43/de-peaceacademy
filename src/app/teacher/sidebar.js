@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 import { AuthContext } from "@/context/AuthProvider";
 export default function TeacherSidebar() {
@@ -32,9 +33,11 @@ export default function TeacherSidebar() {
   };
   return (
     <div className="d-none d-sm-block d-flex flex-column p-3 text-white custom-nav align-items-center">
-      <img
+      <Image
         src="/DE.png"
         alt="schoollogo"
+        width={70}
+        height={70}
         className="rounded mx-auto d-block custom-logo"
         loading="lazy"
       />
